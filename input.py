@@ -1,5 +1,6 @@
 import csv
 import getpass
+from colorama import Fore, Back
 from crypt import encrypt_credentials
 from password import generate_password
 
@@ -13,8 +14,7 @@ def accept_user_input():
     user_name = input('Username/email:')
 
     while True:
-        gen_password = input('\u001b[31mGenerate password / Save password?('
-                             'g/s):\u001b[0m')
+        gen_password = input('Generate password / Save password?(g/s):')
         if gen_password.lower() == 'g':
             plain_password = generate_password()
             password = encrypt_credentials(plain_password)
@@ -28,7 +28,7 @@ def accept_user_input():
             break
 
         else:
-            print('\u001b[31mEnter a valid option!\u001b[0m')
+            print(Fore.LIGHTRED_EX +'Enter a valid option!')
             continue
 
 
@@ -37,19 +37,18 @@ def accept_user_input():
 def save_user_input(title,website,username,password):
     """Save credentials into an CSV file"""
     try:
-        if open(login_credentials):#Save new credentials without creating a new file
+        if open(login_credentials):#Append to file
             with open(login_credentials,'a+',newline='') as f:
                 thewriter = csv.DictWriter(f, fieldnames=field_names)
                 thewriter.writerow({'title':title,'website':website,
                                     'username':username,'password':password})
-                print('\n\u001b[31mCredentials have been saved\u001b[0m\n')
+                print(Fore.BLACK + Back.LIGHTGREEN_EX +'\nSaving is complete\n')
 
-    except FileNotFoundError:#Create a new file for login credentials if no file
-        # was found
+    except FileNotFoundError:#Create a new file
         with open(login_credentials, 'w+', newline='') as f:
             thewriter = csv.DictWriter(f, fieldnames=field_names)
             thewriter.writeheader()
             thewriter.writerow({'title':title,'website': website,'username':
                 username,'password': password})
-            print('\n\u001b[31mSaving is complete\u001b[0m\n')
+            print(Fore.BLACK + Back.LIGHTGREEN_EX +'\nSaving is complete\n')
 
