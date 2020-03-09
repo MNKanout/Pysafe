@@ -4,14 +4,13 @@ from input import accept_user_input
 from output import show_saved_logins
 from password import generate_password
 from reset import delete_all
-from colorama import init, Fore, Back
+from colorama import Fore, Back
 
-init(autoreset=True)
 
 print(f"\n"
-      f"{Fore.BLACK+Back.LIGHTCYAN_EX +'PPM inbound!' + Fore.RESET}\nCheck "
-      f"out the {Fore.LIGHTYELLOW_EX +'readme.txt'+ Fore.RESET} file for info "
-      f"on how to use this program.\n")
+      f"{Fore.BLACK+Back.LIGHTCYAN_EX +'PPM inbound!'+ Fore.RESET + Back.RESET}"
+      f"\nCheck out the {Fore.LIGHTYELLOW_EX +'readme.txt'+ Fore.RESET} "
+      f"file for info on how to use this program.")
 
 while True:
     print(Fore.LIGHTRED_EX + '\nWhat do you wish to do?')

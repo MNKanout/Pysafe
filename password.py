@@ -21,9 +21,17 @@ def generate_password():
             while i <= length:
                 p.append(random.choice(password_mix))
                 i = i + 1
-            s = ''
-            print(f'\nNew password:{Fore.LIGHTYELLOW_EX + s.join(p)}\n')
-            return (s.join(p))
-
+            separator = ''
+            print(f'\nNew password:{Fore.LIGHTYELLOW_EX + separator.join(p)}\n')
+            while True:
+                print(Fore.LIGHTRED_EX + 'Regenerate password?(y/n)')
+                regenerate = input()
+                if regenerate.lower() == 'y':
+                    break
+                elif regenerate.lower() == 'n':
+                    return (separator.join(p))
+                else:
+                    print(Fore.LIGHTRED_EX + "Enter a valid option!")
+                    continue
 
 
