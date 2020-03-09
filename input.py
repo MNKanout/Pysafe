@@ -3,7 +3,7 @@ import getpass
 from colorama import Fore, Back
 from crypt import encrypt_credentials
 from password import generate_password
-
+cr = Fore.RESET + Back.RESET
 login_credentials = 'login_credentials.csv' #Login credentials file
 field_names = ['title', 'website', 'username', 'password']
 
@@ -28,7 +28,7 @@ def accept_user_input():
             break
 
         else:
-            print(Fore.LIGHTRED_EX +'Enter a valid option!')
+            print(Fore.LIGHTRED_EX +'Enter a valid option!'+cr)
             continue
 
 
@@ -42,7 +42,8 @@ def save_user_input(title,website,username,password):
                 thewriter = csv.DictWriter(f, fieldnames=field_names)
                 thewriter.writerow({'title':title,'website':website,
                                     'username':username,'password':password})
-                print(Fore.BLACK + Back.LIGHTGREEN_EX +'\nSaving is complete\n')
+                print(Fore.BLACK + Back.LIGHTGREEN_EX +'Saving is '
+                                                       'complete'+cr+'\n')
 
     except FileNotFoundError:#Create a new file
         with open(login_credentials, 'w+', newline='') as f:
@@ -50,5 +51,6 @@ def save_user_input(title,website,username,password):
             thewriter.writeheader()
             thewriter.writerow({'title':title,'website': website,'username':
                 username,'password': password})
-            print(Fore.BLACK + Back.LIGHTGREEN_EX +'\nSaving is complete\n')
+            print(Fore.BLACK + Back.LIGHTGREEN_EX +'\nSaving is '
+                                                   'complete'+cr+'\n')
 
