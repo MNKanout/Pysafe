@@ -1,4 +1,5 @@
 import csv
+from colorama import Fore,Back
 from input import login_credentials
 from crypt import decrypt_user_credentials
 
@@ -16,10 +17,10 @@ def show_saved_logins():
                 password = decrypt_user_credentials(token)
                 password = str(password)
                 password = password[1:]
-                final_credentilas = '{} {} {} {}'.format(title,website,username,
-                                                         password)
-                print(f'\n\u001b[33m{final_credentilas}\u001b[0m\n')
+                final_credentials = '{} {} {} {}'.format(title,website,username,
+                            Fore.LIGHTMAGENTA_EX+Back.LIGHTYELLOW_EX+password)
+                print(f'\n{final_credentials}\n')
     except FileNotFoundError:
-        print(f'\n\u001b[31mNo credentilas were found!\u001b[0m\n')
+        print(Fore.LIGHTRED_EX +'\nNo credentials were found!\n')
         pass
 

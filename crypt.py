@@ -1,3 +1,4 @@
+from colorama import Fore
 from cryptography.fernet import Fernet
 from keys import get_key, generate_new_key
 
@@ -11,12 +12,12 @@ def encrypt_credentials(plain_password):
         return token
 
     except FileNotFoundError:
-        user_choice = input('\n\u001b[31mNo encryption key was found, do you '
-                            'wish to generate a new one now?(y/n)\u001b[0m\n')
+        print(Fore.LIGHTRED_EX +'No encryption key was found!')
+        user_choice = input('Do you wish to generate a new one now?(y/n)')
         while True:
             if user_choice.lower() == 'n':
-                print('\u001b[31mYou need an encryption key to encrypt your '
-                      'login credentials! back to the main menu!\u001b[0m\n')
+                print(Fore.LIGHTRED_EX+'You need an encryption key to '
+                    'encrypt your login credentials!\nBack to the main menu!\n')
                 break
             elif user_choice.lower() == 'y':
                 generate_new_key()
