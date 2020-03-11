@@ -8,7 +8,7 @@ from colorama import Fore, Back
 
 
 print(f"\n"
-      f"{Fore.BLACK+Back.LIGHTCYAN_EX +'PPM inbound!'+ Fore.RESET + Back.RESET}"
+      f"{Fore.BLACK+Back.LIGHTCYAN_EX+'Pysafe inbound!'+ Fore.RESET+Back.RESET}"
       f"\nCheck out the {Fore.LIGHTYELLOW_EX +'readme.txt'+ Fore.RESET} "
       f"file for info on how to use this program.")
 
