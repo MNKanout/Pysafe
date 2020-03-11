@@ -1,7 +1,7 @@
 import csv
 from colorama import Fore,Back
-from input import login_credentials
-from cryptor import decrypt_user_credentials
+from src.input import login_credentials
+from src.cryptor import decrypt_user_credentials
 
 def show_saved_logins():
     """Show saved credentials"""

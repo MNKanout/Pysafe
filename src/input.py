@@ -1,8 +1,8 @@
 import csv
 import getpass
 from colorama import Fore, Back
-from cryptor import encrypt_credentials
-from password import generate_password
+from src.cryptor import encrypt_credentials
+from src.password import generate_password
 
 cr = Fore.RESET + Back.RESET
 login_credentials = 'login_credentials.csv' #Login credentials file
