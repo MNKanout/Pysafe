@@ -1,5 +1,5 @@
 from cryptography.fernet import Fernet
-from colorama import init,Fore,Back
+from colorama import init,Fore
 init(autoreset=True)
 
 key_path = 'key.txt'

@@ -1,7 +1,7 @@
 import os
 from colorama import Fore,Back
-from src.keys import key_path
-from src.input import login_credentials
+from keys import key_path
+from input import login_credentials
 
 cr = Fore.RESET + Back.RESET
 

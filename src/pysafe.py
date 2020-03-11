@@ -1,9 +1,9 @@
 """Python password manger main menu"""
-from src.keys import generate_new_key
-from src.input import accept_user_input
-from src.output import show_saved_logins
-from src.password import generate_password
-from src.reset import delete_all
+from keys import generate_new_key
+from input import accept_user_input
+from output import show_saved_logins
+from password import generate_password
+from reset import delete_all
 from colorama import Fore, Back
 
 

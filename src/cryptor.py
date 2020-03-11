@@ -1,6 +1,6 @@
 from colorama import Fore
 from cryptography.fernet import Fernet
-from src.keys import get_key, generate_new_key
+from keys import get_key, generate_new_key
 
 
 def encrypt_credentials(plain_password):
