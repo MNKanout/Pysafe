@@ -1,0 +1,8 @@
+pyvenv.cfg
+ppm_venv
+__pycache__
+login_credentials.csv
+key.txt
+build/
+dist/
+ppm.egg-info/
