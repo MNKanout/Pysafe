@@ -5,4 +5,4 @@ login_credentials.csv
 key.txt
 build/
 dist/
-ppm.egg-info/
+Pysafe.egg-info/

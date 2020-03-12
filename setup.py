@@ -11,10 +11,10 @@ setuptools.setup(
     description="Python password manger",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
-    py_modules = ['pysafe','cryptor','password','input','output','keys',
-                  'reset'],
-    scripts=["pysafe.py"],
+    url="https://github.com/MNKanout/Pysafe",
+    py_modules = ['src/pysafe','src/cryptor','src/password','src/input',
+                  'src/output','src/keys','src/reset'],
+    scripts=["src/pysafe.py"],
     install_requires=[
         'cffi==1.14.0',
         'colorama==0.4.3',
@@ -27,7 +27,8 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        "Operating System :: MacOS",
+        "Natural Language :: English",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
 )
