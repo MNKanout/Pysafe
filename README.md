@@ -24,20 +24,16 @@ Open Powershell and type
 
 #### On mac:
 
-After installing the packages type
+Open terminal and type
 
 ``Python3 ``
-
-then
 
 ``Import pysafe``
 
 #### On Windows:
-After installing the packages type
+Open Powershell and type
 
 ``python3``
-
-then type
 
 ``import pysafe``
 
