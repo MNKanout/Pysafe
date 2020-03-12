@@ -8,7 +8,3 @@ Pysafe is a terminal-based password manager with a very easy to use CLI.
 * Show all your saved login credentials with a click of button.
 * Ready to export CSV file for an easy backup experience.
 * Master reset to delete all saved login credentials and encryption key.
-### How to install:
-
-### How to use:
-

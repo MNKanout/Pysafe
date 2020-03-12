@@ -19,7 +19,7 @@ def show_saved_logins():
                 password = password[1:]
                 final_credentials = '{} {} {} {}'.format(title,website,username,
                             Fore.LIGHTMAGENTA_EX+Back.LIGHTYELLOW_EX+password)
-                print(f'\n{final_credentials}\n')
+                print(f'\n{final_credentials}')
     except FileNotFoundError:
         print(Fore.LIGHTRED_EX +'\nNo credentials were found!\n')
         pass

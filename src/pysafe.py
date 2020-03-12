@@ -23,7 +23,7 @@ while True:
                         "\n0.Exit\n")
 
     if user_choice == '0':
-        break
+        exit()
     elif user_choice == '1':
         generate_new_key()
         continue
