@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pysafe",
-    version="0.1.2",
+    version="0.1.3",
     author="MNKANOUT",
     author_email="mnkanout@gmail.com",
     description="Python password manger",
