@@ -38,7 +38,7 @@ def accept_user_input():
 def save_user_input(title,website,username,password):
     """Save credentials into an CSV file"""
     try:
-        if open(login_credentials):#Append to file
+        if open(login_credentials):     #Append to file
             with open(login_credentials,'a+',newline='') as f:
                 thewriter = csv.DictWriter(f, fieldnames=field_names)
                 thewriter.writerow({'title':title,'website':website,
@@ -46,7 +46,7 @@ def save_user_input(title,website,username,password):
                 print(Fore.BLACK + Back.LIGHTGREEN_EX +'Saving is '
                                                        'complete'+cr+'\n')
 
-    except FileNotFoundError:#Create a new file
+    except FileNotFoundError:   #Create a new file
         with open(login_credentials, 'w+', newline='') as f:
             thewriter = csv.DictWriter(f, fieldnames=field_names)
             thewriter.writeheader()
