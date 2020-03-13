@@ -52,6 +52,6 @@ def save_user_input(title,website,username,password):
             thewriter.writeheader()
             thewriter.writerow({'title':title,'website': website,'username':
                 username,'password': password})
-            print(Fore.BLACK + Back.LIGHTGREEN_EX +'\nSaving is '
+            print(Fore.BLACK + Back.LIGHTGREEN_EX +'Saving is '
                                                    'complete'+cr+'\n')
 

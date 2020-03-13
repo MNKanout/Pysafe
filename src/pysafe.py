@@ -13,7 +13,7 @@ print(f"\n"
       f"file for info on how to use this program.")
 
 while True:
-    print(Fore.LIGHTRED_EX + '\nWhat do you wish to do?')
+    print('\n'+Fore.BLACK+Back.MAGENTA+'What do you wish to do?')
     user_choice = input(
                         "1.Generate a new encryption key"
                         "\n2.Enter a new login"
