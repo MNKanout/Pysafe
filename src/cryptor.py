@@ -50,7 +50,7 @@ def decrypt_user_credentials(token):
         return password
 
     except FileNotFoundError:
-        print(Fore.LIGHTRED_EX+'No encryption key was saved')
+        print(Fore.LIGHTRED_EX+'No encryption key was found')
         while True:
             user_choice = input('Enter encryption key?(y/n)')
             if user_choice.lower() == 'y':
