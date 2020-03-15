@@ -22,7 +22,7 @@ def generate_password():
                 i = i + 1
             separator =''
             print(f'\nNew password:'
-                  f'{Fore.LIGHTYELLOW_EX+str(separator.join(p))}\n')
+                  f'{Fore.LIGHTYELLOW_EX+(separator.join(p))}\n')
             while True:
                 print(Fore.LIGHTRED_EX + 'Regenerate password?(y/n)')
                 regenerate = input()
