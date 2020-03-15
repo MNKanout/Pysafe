@@ -1,8 +1,9 @@
 import pathlib
+import json
 from colorama import init, Fore
 from cryptography.fernet import Fernet
 
-key_filename = str(pathlib.Path('key.txt').absolute())
+key_filename = str(pathlib.Path('key.json').absolute())
 init(autoreset=True)
 
 def generate_key():
@@ -20,7 +21,7 @@ def save_key_to_file(key):
                           "(y/n)\t")
         if save_file.lower() == 'y':
             with open(key_filename, 'w') as key_object:
-                key_object.write(key)
+                json.dump(key,key_object)
                 print(f"\nThe encryption key has been saved to" +
                       f"{Fore.LIGHTYELLOW_EX+key_filename}")
                 break
@@ -33,7 +34,7 @@ def save_key_to_file(key):
 def get_key():
     """Read key from file"""
     with open(key_filename, 'r') as key_object:
-        key = key_object.read()
+        key = json.load(key_object)
         return key
 
 def enter_key():
