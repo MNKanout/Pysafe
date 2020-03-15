@@ -31,7 +31,7 @@ Open terminal and type
 ``Import pysafe``
 
 #### On Windows:
-Open Powershell and type
+Open CMD and type
 
 ``python3``
 

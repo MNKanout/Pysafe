@@ -7,3 +7,4 @@ build/
 dist/
 Pysafe.egg-info/
 tester
+key.json
