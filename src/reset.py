@@ -1,7 +1,7 @@
 import os
 from colorama import Fore,Back
-from keys import key_path
-from input import login_credentials
+from keys import key_filename
+from input import login_credentials_filename
 
 cr = Fore.RESET + Back.RESET
 
@@ -10,14 +10,14 @@ def delete_all():
     confirm = input("Delete saved encryption key and login credentials?(y/n)\t")
     if confirm.lower() == 'y':
         try:
-            os.remove(key_path)
+            os.remove(key_filename)
         except FileNotFoundError:
             print(Fore.LIGHTRED_EX +'No encryption key was found\n'+cr)
         else:
             print(Fore.BLACK+Back.GREEN +'Encryption key has been '
                                          'deleted!'+cr+'\n')
         try:
-            os.remove(login_credentials)
+            os.remove(login_credentials_filename)
         except FileNotFoundError:
             print(Fore.LIGHTRED_EX +'No login credentials were found'+cr+'\n')
         else:

@@ -1,10 +1,13 @@
 import random
 import string
+from sys import platform
+from getpass import getpass
+from cryptor import encrypt_credentials
 from colorama import Fore
 
 
 def generate_password():
-    """Generate password based with a given length"""
+    """Generate password with a given length"""
     while True:
         length = input('Number of the password characters:')
         try:
@@ -24,7 +27,7 @@ def generate_password():
             print(f'\nNew password:'
                   f'{Fore.LIGHTYELLOW_EX+(separator.join(p))}\n')
             while True:
-                print(Fore.LIGHTRED_EX + 'Regenerate password?(y/n)')
+                print(Fore.LIGHTRED_EX+'Regenerate password?(y/n)')
                 regenerate = input()
                 if regenerate.lower() == 'y':
                     break
@@ -34,4 +37,22 @@ def generate_password():
                     print(Fore.LIGHTRED_EX + "Enter a valid option!")
                     continue
 
+def input_password():
+    """Accept password from user"""
+    while True:
+        gen_password = input('Generate password / Save password?(g/s):')
+        if gen_password.lower() == 'g':
+            plain_password = generate_password()
+            password = encrypt_credentials(plain_password)
+            return password
+        elif gen_password.lower() == 's':
+            if platform == 'win32':
+                print(Fore.LIGHTRED_EX+'Mouse right-click to paste passwords!')
+            else:
+                plain_password = getpass('New password:')
+                password = encrypt_credentials(plain_password)
+                return password
+        else:
+            print(Fore.LIGHTRED_EX +'Enter a valid option!')
+            continue
 

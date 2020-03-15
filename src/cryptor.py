@@ -1,6 +1,6 @@
 from colorama import Fore
 from cryptography.fernet import Fernet
-from keys import get_key,generate_new_key,enter_key
+from keys import get_key, generate_key, enter_key
 
 
 def encrypt_credentials(plain_password):
@@ -12,7 +12,7 @@ def encrypt_credentials(plain_password):
         return token
 
     except FileNotFoundError:
-        print(Fore.LIGHTRED_EX +'No encryption key was found!')
+        print(Fore.LIGHTRED_EX+'No encryption key was found!')
         user_choice = input('Generate/Enter encryption key? Or cancel('
                             'g/e/c)')
         while True:
@@ -22,7 +22,7 @@ def encrypt_credentials(plain_password):
                 break
 
             elif user_choice.lower() == 'g':
-                generate_new_key()
+                generate_key()
                 key = get_key()
                 f_1 = Fernet(key)
                 token = f_1.encrypt(plain_password.encode())

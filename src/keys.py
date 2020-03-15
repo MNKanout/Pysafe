@@ -2,11 +2,10 @@ import pathlib
 from colorama import init, Fore
 from cryptography.fernet import Fernet
 
+key_filename = str(pathlib.Path('key.txt').absolute())
 init(autoreset=True)
-key_path = 'key.txt' # Encryption Key filename.
-key_absolute = str(pathlib.Path(key_path).absolute())
 
-def generate_new_key():
+def generate_key():
     """Generate a new encryption key"""
     key = Fernet.generate_key()
     key = bytearray(key)
@@ -20,10 +19,10 @@ def save_key_to_file(key):
         save_file = input("Save key to file? This will erase any existed key!"
                           "(y/n)\t")
         if save_file.lower() == 'y':
-            with open(key_path,'w') as key_object:
+            with open(key_filename, 'w') as key_object:
                 key_object.write(key)
                 print(f"\nThe encryption key has been saved to" +
-                      f"{Fore.LIGHTYELLOW_EX+key_absolute}")
+                      f"{Fore.LIGHTYELLOW_EX+key_filename}")
                 break
         elif save_file.lower() == 'n':
             break
@@ -33,7 +32,7 @@ def save_key_to_file(key):
 
 def get_key():
     """Read key from file"""
-    with open(key_path,'r') as key_object:
+    with open(key_filename, 'r') as key_object:
         key = key_object.read()
         return key
 
