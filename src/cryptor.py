@@ -3,12 +3,13 @@ from cryptography.fernet import Fernet
 from keys import get_key, generate_key, enter_key
 
 
-def encrypt_credentials(plain_password):
+def encrypt_credentials(password):
     """Encrypt credentials using the provided key"""
     try:
         key = get_key()
         f_1 = Fernet(key)
-        token = f_1.encrypt(plain_password.encode())
+        token = f_1.encrypt(password.encode())
+        token = token.decode()
         return token
 
     except FileNotFoundError:
@@ -22,16 +23,17 @@ def encrypt_credentials(plain_password):
                 break
 
             elif user_choice.lower() == 'g':
-                generate_key()
-                key = get_key()
+                key =generate_key()
                 f_1 = Fernet(key)
-                token = f_1.encrypt(plain_password.encode())
+                token = f_1.encrypt(password.encode())
+                token = token.decode()
                 return token
 
             elif user_choice.lower()=='e':
                 key = enter_key()
                 f_1 = Fernet(key)
-                token = f_1.encrypt(plain_password.encode())
+                token = f_1.encrypt(password.encode())
+                token = token.decode()
                 return token
             else:
                 print(Fore.LIGHTRED_EX+'Please enter a valid option!')
@@ -44,9 +46,10 @@ def decrypt_user_credentials(token):
     """Decrypt saved credentials"""
     try:
         key = get_key()
-        key = key.encode()
         f_1 = Fernet(key)
+        token = bytes(token,'utf-8')
         password = f_1.decrypt(token)
+        password = password.decode()
         return password
 
     except FileNotFoundError:
@@ -55,7 +58,8 @@ def decrypt_user_credentials(token):
             user_choice = input('Enter encryption key?(y/n)')
             if user_choice.lower() == 'y':
                 key = enter_key()
-                key = key.encode()
                 f_1 = Fernet(key)
+                token = bytes(token,'utf-8')
                 password = f_1.decrypt(token)
+                password = password.decode()
                 return password

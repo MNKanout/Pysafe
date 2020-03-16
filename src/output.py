@@ -13,11 +13,8 @@ def output_login_credentials():
                 title = line['title']
                 website = line['website']
                 username = line['username']
-                token = line['password']
-                token = bytes(token[1:], 'utf-8')
-                password = decrypt_user_credentials(token)
-                password = str(password)
-                password = password[1:]
+                password = line['password']
+                password = decrypt_user_credentials(password)
                 final_credentials = '{} {} {} {}'.format(title,website,username,
                             Fore.LIGHTMAGENTA_EX+Back.LIGHTYELLOW_EX+password)
                 print(f'\n{final_credentials}')

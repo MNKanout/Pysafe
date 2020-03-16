@@ -6,10 +6,10 @@ from cryptography.fernet import Fernet
 key_filename = str(pathlib.Path('key.json').absolute())
 init(autoreset=True)
 
+
 def generate_key():
     """Generate a new encryption key"""
     key = Fernet.generate_key()
-    key = bytearray(key)
     key = key.decode()
     print(f'\nEncryption key:{Fore.LIGHTYELLOW_EX+(key)}\n')
     save_key_to_file(key)
@@ -35,10 +35,12 @@ def get_key():
     """Read key from file"""
     with open(key_filename, 'r') as key_object:
         key = json.load(key_object)
+        key = key.encode()
         return key
 
 def enter_key():
     """Input key from user"""
     key = input('Enter encryption key:')
+    key = key.encode()
     return key
 
