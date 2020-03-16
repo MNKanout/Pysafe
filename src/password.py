@@ -9,7 +9,6 @@ from colorama import Fore
 from cryptor import encrypt_credentials
 from config import cr
 
-
 def generate_password():
     """Generate password with a given length"""
     while True:

@@ -18,8 +18,8 @@ def save_user_input(title,website,username,password):
         if open(login_credentials_filename):#Append to file
             with open(login_credentials_filename,'a+',newline='') as f:
                 thewriter = csv.DictWriter(f,fieldnames=field_names)
-                thewriter.writerow({'title':title,'website':website,'username':
-                                                username,'password':password})
+                thewriter.writerow({'Title':title,'Website':website,'Username':
+                                                username,'Password':password})
                 print(f"Login credentials has been Saved to"
                       f"{Fore.LIGHTYELLOW_EX}"
                         f"{login_credentials_filename+ cr}\n")
@@ -28,8 +28,8 @@ def save_user_input(title,website,username,password):
         with open(login_credentials_filename,'w+',newline='') as f:
             thewriter = csv.DictWriter(f,fieldnames=field_names)
             thewriter.writeheader()
-            thewriter.writerow({'title':title,'website': website,'username':
-                                             username,'password': password})
+            thewriter.writerow({'Title':title,'Website': website,'Username':
+                                             username,'Password': password})
             print(f"Login credentials has been Saved to"
                   f"{Fore.LIGHTYELLOW_EX}"
                     f"{login_credentials_filename+cr}\n")
