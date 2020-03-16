@@ -1,19 +1,23 @@
+# Builtin modules
 import random
 import string
 from sys import platform
 from getpass import getpass
-from cryptor import encrypt_credentials
+# Dependencies
 from colorama import Fore
+# Local modules
+from cryptor import encrypt_credentials
+from config import cr
 
 
 def generate_password():
     """Generate password with a given length"""
     while True:
-        length = input('Number of the password characters:')
+        length = input('Password length:')
         try:
             length = int(length)
         except ValueError:
-            print(Fore.LIGHTGREEN_EX+"You didn't enter a number")
+            print(Fore.LIGHTRED_EX+"You didn't enter a number"+cr)
             continue
         else:
             custom_punctuation = "!#$%*+-?@_"
@@ -25,16 +29,16 @@ def generate_password():
                 i = i + 1
             separator =''
             print(f'\nNew password:'
-                  f'{Fore.LIGHTYELLOW_EX+(separator.join(p))}\n')
+                  f'{Fore.LIGHTYELLOW_EX+(separator.join(p))}\n'+cr)
             while True:
-                print(Fore.LIGHTRED_EX+'Regenerate password?(y/n)')
+                print(Fore.LIGHTRED_EX+'Regenerate password?(y/n)'+cr)
                 regenerate = input()
                 if regenerate.lower() == 'y':
                     break
                 elif regenerate.lower() == 'n':
                     return (separator.join(p))
                 else:
-                    print(Fore.LIGHTRED_EX + "Enter a valid option!")
+                    print(Fore.LIGHTRED_EX + "Enter a valid option!"+cr)
                     continue
 
 def input_password():
@@ -47,12 +51,13 @@ def input_password():
             return password
         elif gen_password.lower() == 's':
             if platform == 'win32':
-                print(Fore.LIGHTRED_EX+'Mouse right-click to paste passwords!')
+                print(Fore.LIGHTRED_EX+'Mouse right-click to paste '
+                                       'passwords!'+cr)
             else:
                 plain_password = getpass('New password:')
                 password = encrypt_credentials(plain_password)
                 return password
         else:
-            print(Fore.LIGHTRED_EX +'Enter a valid option!')
+            print(Fore.LIGHTRED_EX+'Enter a valid option!'+cr)
             continue
 

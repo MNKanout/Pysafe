@@ -1,9 +1,9 @@
+# Builtin modules
 import os
-from colorama import Fore,Back
-from keys import key_filename
-from input import login_credentials_filename
-
-cr = Fore.RESET + Back.RESET
+# Dependencies
+from colorama import Fore, Back
+# Local modules
+from config import login_credentials_filename, key_filename, cr
 
 def delete_all():
     """Delete credentials and keys"""

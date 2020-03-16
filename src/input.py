@@ -1,11 +1,8 @@
 import csv
-import pathlib
-from colorama import Fore, Back
+from colorama import Fore
+from config import login_credentials_filename, field_names, cr
 from password import input_password
 
-cr = Fore.RESET + Back.RESET # Short for color rest
-login_credentials_filename = str(pathlib.Path('login_credentials.csv').absolute())
-field_names = ['title','website','username','password']
 
 def input_login_credentials():
     """Accept user input"""
@@ -18,7 +15,7 @@ def input_login_credentials():
 def save_user_input(title,website,username,password):
     """Save credentials to a CSV file"""
     try:
-        if open(login_credentials_filename):#Append to file a login credentials file
+        if open(login_credentials_filename):#Append to file
             with open(login_credentials_filename,'a+',newline='') as f:
                 thewriter = csv.DictWriter(f,fieldnames=field_names)
                 thewriter.writerow({'title':title,'website':website,'username':
@@ -27,7 +24,7 @@ def save_user_input(title,website,username,password):
                       f"{Fore.LIGHTYELLOW_EX}"
                         f"{login_credentials_filename+ cr}\n")
 
-    except FileNotFoundError:#Create a new login credentials file
+    except FileNotFoundError:   #Create new file.
         with open(login_credentials_filename,'w+',newline='') as f:
             thewriter = csv.DictWriter(f,fieldnames=field_names)
             thewriter.writeheader()
