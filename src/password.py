@@ -30,7 +30,7 @@ def generate_password():
             print(f'\nNew password:'
                   f'{Fore.LIGHTYELLOW_EX+(separator.join(p))}\n'+cr)
             while True:
-                print(Fore.LIGHTRED_EX+'Regenerate password?(y/n)'+cr)
+                print('Regenerate password?(y/n)')
                 regenerate = input()
                 if regenerate.lower() == 'y':
                     break

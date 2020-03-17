@@ -11,9 +11,8 @@ from config import login_credentials_filename, cr, key_filename
 
 
 if __name__ == '__main__':
-    print(f"\n"
-          f"{Fore.BLACK+Back.LIGHTYELLOW_EX+'Pysafe inbound!'+Fore.RESET+Back.RESET}"
-          f"\nCheck out the {Fore.LIGHTYELLOW_EX+'README.md'+cr} "
+    print(f"\n{Fore.BLACK+Back.LIGHTYELLOW_EX+'Pysafe 0.2.0 inbound!'+cr}"
+          f"\nCheck out the {Fore.LIGHTRED_EX+'README.md'+cr} "
           f"file for info on how to use this program.")
     while True:
         print('\n'+Fore.BLACK+Back.LIGHTCYAN_EX+'What do you wish to do?'+cr)

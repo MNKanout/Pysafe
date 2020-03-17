@@ -1,5 +1,5 @@
 import csv
-from colorama import Fore
+from colorama import Fore, Back
 from config import login_credentials_filename, field_names, cr
 from password import input_password
 
@@ -15,22 +15,18 @@ def input_login_credentials():
 def save_user_input(title,website,username,password):
     """Save credentials to a CSV file"""
     try:
-        if open(login_credentials_filename):#Append to file
+        if open(login_credentials_filename):#Append to file without header
             with open(login_credentials_filename,'a+',newline='') as f:
                 thewriter = csv.DictWriter(f,fieldnames=field_names)
                 thewriter.writerow({'Title':title,'Website':website,'Username':
                                                 username,'Password':password})
-                print(f"Login credentials has been Saved to"
-                      f"{Fore.LIGHTYELLOW_EX}"
-                        f"{login_credentials_filename+ cr}\n")
+                print(f"{Fore.BLACK+Back.GREEN}Saving was successful"+cr)
 
-    except FileNotFoundError:   #Create new file.
+    except FileNotFoundError:   #Create new file with header
         with open(login_credentials_filename,'w+',newline='') as f:
             thewriter = csv.DictWriter(f,fieldnames=field_names)
             thewriter.writeheader()
             thewriter.writerow({'Title':title,'Website': website,'Username':
                                              username,'Password': password})
-            print(f"Login credentials has been Saved to"
-                  f"{Fore.LIGHTYELLOW_EX}"
-                    f"{login_credentials_filename+cr}\n")
+            print(f"{Fore.BLACK+Back.GREEN}Saving was successful!"+cr)
 
