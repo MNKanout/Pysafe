@@ -1,5 +1,4 @@
 import csv
-import string
 from colorama import Fore, Back
 from config import login_credentials_filename, cr
 from cryptor import decrypt_user_credentials
