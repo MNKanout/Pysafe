@@ -19,7 +19,7 @@ if __name__ == '__main__':
         print('\n'+Fore.BLACK+Back.LIGHTCYAN_EX+'What do you wish to do?'+cr)
         user_choice = input(
                             "1.Generate a new encryption key"
-                            "\n2.Use a previous encryption key"
+                            "\n2.Use previous encryption key"
                             "\n3.Enter a new login"
                             "\n4.Show saved login credentials"
                             "\n5.Generate password"
@@ -30,10 +30,10 @@ if __name__ == '__main__':
         if user_choice == '0':
             exit()
         elif user_choice == '1':
-            key = generate_key()
+            generate_key()
             continue
         elif user_choice == '2':
-            key = enter_key()
+            enter_key()
             continue
         elif user_choice == '3':
             input_login_credentials()

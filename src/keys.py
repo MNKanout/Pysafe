@@ -25,8 +25,9 @@ def generate_key():
 
 def save_key_to_file(key):
     """Save generated key to file"""
-    with open(key_filename, 'w') as key_object:
-        json.dump(key,key_object)
+    with open(key_filename,'w') as f:
+        json.dump(key, f,)
+        #f.write(key)
         print(f"\nThe encryption key has been saved to" +
               f"{Fore.LIGHTYELLOW_EX+key_filename}"+cr)
 
@@ -40,7 +41,7 @@ def get_key():
 def enter_key():
     """Input key from user"""
     key = input('Enter encryption key:')
-    if len(key) == 44:
+    if len(key) == 46 and key[44] == '=':
         save_key_to_file(key)
         key = key.encode()
         return key

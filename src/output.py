@@ -1,24 +1,29 @@
 import csv
+import string
 from colorama import Fore, Back
-from config import login_credentials_filename, cr, field_names
+from config import login_credentials_filename, cr
 from cryptor import decrypt_user_credentials
 
 def output_login_credentials():
     """Show saved credentials"""
     try:
-        with open(login_credentials_filename) as csv_object:
-            plain_credentials = csv.DictReader(csv_object)
-            print(' -- '.join(field_names))
-            for line in plain_credentials:
+        with open(login_credentials_filename) as f:
+            csv_reader = csv.DictReader(f)
+            field_names = '\t{:<20} {:<20} {:<20} {:<20}'.format(
+                'Title','Website','Username','Password')
+            i = 0
+            print(Fore.BLACK+Back.WHITE+field_names+cr)
+            for line in csv_reader:
+                i = i + 1
                 title = line['Title']
                 website = line['Website']
                 username = line['Username']
                 password = line['Password']
                 password = decrypt_user_credentials(password)
-                final_credentials = '{} {} {} {}'.format(title,website,
-                username,Fore.LIGHTMAGENTA_EX+Back.LIGHTYELLOW_EX+password+cr)
+                final_ = '{:<20} {:<20} {:<20} {:<20}'.format(title,website,
+                                                            username,password)
 
-                print(f'\n{final_credentials}')
+                print(f'\n{i}.\t{final_}')
     except FileNotFoundError:
         print(Fore.LIGHTRED_EX +'\nNo login credentials were found!\n'+cr)
         pass
