@@ -11,7 +11,8 @@ from config import login_credentials_filename, cr, key_filename
 
 init()
 
-if __name__ == '__main__':
+def main():
+    """Launch main menu"""
     print(f"\n{Fore.BLACK+Back.LIGHTYELLOW_EX+'Pysafe 0.2.0 inbound!'+cr}"
           f"\nCheck out the {Fore.LIGHTRED_EX+'README.md'+cr} "
           f"file for info on how to use this program.")
@@ -56,3 +57,4 @@ if __name__ == '__main__':
             continue
 
 
+main()
