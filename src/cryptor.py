@@ -1,10 +1,11 @@
 # Dependencies
-from colorama import Fore
+from colorama import Fore, init
 from cryptography.fernet import Fernet
 # Local modules
 from keys import get_key, generate_key, enter_key
 from config import cr
 
+init()
 
 def encrypt_credentials(password):
     """Encrypt credentials using the provided key"""

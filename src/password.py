@@ -4,10 +4,12 @@ import string
 from sys import platform
 from getpass import getpass
 # Dependencies
-from colorama import Fore
+from colorama import Fore, init
 # Local modules
 from cryptor import encrypt_credentials
 from config import cr
+
+init()
 
 def generate_password():
     """Generate password with a given length"""

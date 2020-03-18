@@ -1,8 +1,9 @@
 import csv
-from colorama import Fore, Back
+from colorama import Fore, Back, init
 from config import login_credentials_filename, field_names, cr
 from password import input_password
 
+init()
 
 def input_login_credentials():
     """Accept user input"""

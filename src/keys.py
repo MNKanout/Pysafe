@@ -1,8 +1,9 @@
 import json
-from colorama import Fore
+from colorama import Fore, init
 from cryptography.fernet import Fernet
 from config import key_filename, cr
 
+init()
 
 def generate_key():
     """Generate a new encryption key"""

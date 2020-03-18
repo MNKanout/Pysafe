@@ -1,9 +1,11 @@
 # Builtin modules
 import os
 # Dependencies
-from colorama import Fore, Back
+from colorama import Fore, Back, init
 # Local modules
 from config import login_credentials_filename, key_filename, cr
+
+init()
 
 def delete_all():
     """Delete credentials and keys"""

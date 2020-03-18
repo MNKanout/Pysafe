@@ -1,6 +1,6 @@
 """Python password manger main menu"""
 # Dependencies
-from colorama import Fore, Back
+from colorama import Fore, Back, init
 # Local modules
 from keys import generate_key, enter_key
 from input import input_login_credentials
@@ -9,6 +9,7 @@ from password import generate_password
 from reset import delete_all
 from config import login_credentials_filename, cr, key_filename
 
+init()
 
 if __name__ == '__main__':
     print(f"\n{Fore.BLACK+Back.LIGHTYELLOW_EX+'Pysafe 0.2.0 inbound!'+cr}"
