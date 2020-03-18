@@ -24,7 +24,7 @@ def output_login_credentials():
                 final_ = '{:<20} {:<20} {:<20} {:<20}'.format(title,website,
                                                             username,password)
 
-                print(f'\n{i}.\t{Fore.WHITE+Back.BLACK+final_+cr}')
+                print(f'\n{Fore.WHITE+Back.BLACK+str(i)}.\t{final_+cr}')
     except FileNotFoundError:
         print(Fore.LIGHTRED_EX+'\nNo login credentials were found!\n'+cr)
         pass
