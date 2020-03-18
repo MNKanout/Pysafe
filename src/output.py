@@ -10,7 +10,7 @@ def output_login_credentials():
     try:
         with open(login_credentials_filename) as f:
             csv_reader = csv.DictReader(f)
-            field_names = '\t{:<24} {:<24} {:<24} {:<24}'.format(
+            field_names = '\t{:<20} {:<20} {:<20} {:<20}'.format(
                 'Title','Website','Username','Password')
             i = 0
             print(Fore.BLACK+Back.WHITE+field_names+cr)
@@ -21,7 +21,7 @@ def output_login_credentials():
                 username = line['Username']
                 password = line['Password']
                 password = decrypt_user_credentials(password)
-                final_ = '{:<24} {:<24} {:<24} {:<24}'.format(title,website,
+                final_ = '{:<20} {:<20} {:<20} {:<20}'.format(title,website,
                                                             username,password)
 
                 print(f'\n{i}.\t{Fore.WHITE+Back.BLACK+final_+cr}')
