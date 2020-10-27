@@ -19,7 +19,7 @@ setuptools.setup(
     install_requires=[
         'cffi==1.14.0',
         'colorama==0.4.3',
-        'cryptography==2.8',
+        'cryptography==3.2',
         'pycparser==2.20',
         'six==1.14.0',
 
